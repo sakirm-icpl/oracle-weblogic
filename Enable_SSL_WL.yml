@@ -13,14 +13,14 @@
     
     - name: Copy a single file where the source is on the remote host
       ansible.windows.win_copy:
-        src: C:\oracle-weblogic\Enable_SSL_WL.py
-        dest: C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin\Enable_SSL_WL.py
+        src: C:\oracle-weblogic\Enable_SSL.py
+        dest: C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin\Enable_SSL.py
         remote_src: true
 
     - name: run script
       win_shell: |
         C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin\setDomainEnv.cmd
-        java weblogic.WLST C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin\Enable_SSL_WL.py
+        java weblogic.WLST C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin\Enable_SSL.py
       args:
         executable: powershell.exe
         elevate: yes
