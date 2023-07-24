@@ -14,7 +14,7 @@ cd('SSL')
 cd('AdminServer')
 
 # Enable SSL
-cmo.setEnabled(true)
+cmo.setEnabled(false)
 
 # Save and activate the changes
 save()
