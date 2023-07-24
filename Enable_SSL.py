@@ -1,6 +1,6 @@
 
 # Connect to WebLogic Admin Server
-connect('weblogic', 'P@$$w0rd', '172.17.11.58:7001')
+connect('weblogic', 'P@$$w0rd', '172.17.11.58:7002')
 
 # Start an edit session
 edit()
