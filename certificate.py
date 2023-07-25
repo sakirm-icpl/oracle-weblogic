@@ -1,5 +1,5 @@
 # Connect to server
-connect('weblogic', 'P@$$w0rd', '192.168.34.234:7001')
+connect('weblogic', 'P@$$w0rd', '172.17.16.49:7001')
 
 # Start Editing
 edit()
