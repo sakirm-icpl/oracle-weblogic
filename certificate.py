@@ -1,5 +1,5 @@
 # Connect to server
-connect('weblogic', 'P@$$w0rd', '172.17.16.49:7001')
+connect('weblogic', 'PocWLS0723$', '3.6.299.170:7001')
 
 # Start Editing
 edit()
@@ -8,10 +8,10 @@ startEdit()
 
 #Change directory
 
-cd('/Servers/AdminServer')
+cd('/Servers/MS1')
 
 # Add key.jks file
-cmo.setCustomIdentityKeyStoreFileName('C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain\\certificate\\Identity.jks')
+cmo.setCustomIdentityKeyStoreFileName('/home/sakir/certificate/Identity.jks')
 
 cmo.setCustomIdentityKeyStoreType('jks')
 
@@ -19,7 +19,7 @@ setEncrypted('CustomIdentityKeyStorePassPhrase', 'CustomIdentityKeyStorePassPhra
 
 # Add Trust.jks 
 
-cmo.setCustomTrustKeyStoreFileName('C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain\\certificate\\Trust.jks')
+cmo.setCustomTrustKeyStoreFileName('/home/sakir/certificate/Trust.jks')
 
 cmo.setCustomTrustKeyStoreType('jks')
 
@@ -31,7 +31,7 @@ activate()
 
 startEdit()
 
-cd('/Servers/AdminServer/SSL/AdminServer')
+cd('/Servers/MS1/SSL/MS1')
 
 # Set Alis
 
