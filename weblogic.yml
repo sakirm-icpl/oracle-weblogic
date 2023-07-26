@@ -12,14 +12,14 @@
     
     - name: Copy a single file where the source is on the remote host
       copy:
-        src: /home/temp/oracle-weblogic/certificate.py
-        dest: /home/pavan/fmw/domains/poc_domain/bin/certificate.py
+        src: /home/temp/oracle-weblogic/weblogic.py
+        dest: /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
         remote_src: true
 
     - name: run script
       shell: |
         /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh
-        java weblogic.WLST /home/pavan/fmw/domains/poc_domain/bin/certificate.py
+        java weblogic.WLST /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
 
     - name: Removing script file
       file:
