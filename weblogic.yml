@@ -18,7 +18,7 @@
       become: yes
 
     - name: Run WLST script
-      command: /home/pavan/fmw/wlserver/common/bin/wlst.sh /home/pavan/script/weblogic.py
+      command: sudo /home/pavan/fmw/wlserver/common/bin/wlst.sh /home/pavan/script/weblogic.py
 
     - name: Remove cloned repository
       file:
