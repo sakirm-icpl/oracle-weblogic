@@ -14,6 +14,7 @@
         src: /tmp/oracle-weblogic/weblogic.py
         dest: /root/u01/oracle/middleware/user_projects/domains/base_domain/bin/weblogic.py
         mode: '0755'
+        remote_src: true
       become: yes
 
     - name: Run script
