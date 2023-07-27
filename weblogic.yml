@@ -1,27 +1,29 @@
----
 - name: Enable SSL on Oracle WebLogic Server
   hosts: all
   gather_facts: false
-  become: yes
   tasks:
 
-    - name: Copy Script file
-      shell: git clone https://github.com/sakirm-icpl/oracle-weblogic.git
-      args:
-        chdir: /home/pavan/temp
+    - name: Clone repository
+      git:
+        repo: https://github.com/sakirm-icpl/oracle-weblogic.git
+        dest: /tmp/oracle-weblogic
+      become: yes
     
-    - name: Copy a single file where the source is on the remote host
+    - name: Copy certificate.py to domain bin directory
       copy:
-        src: /home/pavan/temp/oracle-weblogic/weblogic.py
-        dest: /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
-        remote_src: true
+        src: /tmp/oracle-weblogic/weblogic.py
+        dest: /u01/oracle/middleware/user_projects/domains/base_domain/bin/weblogic.py
+        mode: '0755'
+      become: yes
 
-    - name: run script
-      shell: |
-        /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh
-        java weblogic.WLST /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
+    - name: Run script
+      command:
+        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.cmd && java weblogic.WLST /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
+      become: yes
 
-    - name: Removing script file
+    - name: Remove cloned repository
       file:
-        path: /home/pavan/temp/oracle-weblogic
+        path: /tmp/oracle-weblogic
         state: absent
+      become: yes
+      run_once: true
