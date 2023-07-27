@@ -12,18 +12,18 @@
     - name: Copy certificate.py to domain bin directory
       copy:
         src: /root/tmp/oracle-weblogic/weblogic.py
-        dest: /root/script/weblogic.py
+        dest: /home/pavan/script/weblogic.py
         mode: '0755'
         remote_src: true
       become: yes
 
     - name: Set environment variables
       ansible.builtin.set_fact:
-        domain_home: "/home/pavan/fmw/domains/poc_domain"
-        script_path: "/root/script/weblogic.py"
+        domain_home: /home/pavan/fmw/domains/poc_domain
+        script_path: /home/pavan/script/weblogic.py
 
     - name: Run WLST script
-      command: "{{ domain_home }}/bin/wlst.sh {{ script_path }}"
+      command: {{ domain_home }}/bin/wlst.sh {{ script_path }}
 
     - name: Remove cloned repository
       file:
