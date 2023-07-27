@@ -19,7 +19,7 @@
 
     - name: Run script
       command:
-        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh && java WLST /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
+        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh && java wlst /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
       become: yes
 
     - name: Remove cloned repository
