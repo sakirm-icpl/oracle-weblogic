@@ -12,7 +12,7 @@
     - name: Copy certificate.py to domain bin directory
       copy:
         src: /root/tmp/oracle-weblogic/weblogic.py
-        dest: /root/u01/oracle/middleware/user_projects/domains/base_domain/bin/weblogic.py
+        dest: /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
         mode: '0755'
         remote_src: true
       become: yes
