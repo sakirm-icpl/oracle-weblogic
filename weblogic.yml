@@ -12,14 +12,14 @@
     - name: Copy certificate.py to domain bin directory
       copy:
         src: /root/tmp/oracle-weblogic/weblogic.py
-        dest: /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
+        dest: /root/script/weblogic.py
         mode: '0755'
         remote_src: true
       become: yes
 
     - name: Run script
       command:
-        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh && java wlst /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
+        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh && wlst /root/script/weblogic.py
       become: yes
 
     - name: Remove cloned repository
