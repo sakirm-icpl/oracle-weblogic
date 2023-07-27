@@ -17,10 +17,13 @@
         remote_src: true
       become: yes
 
-    - name: Run script
-      command:
-        cmd: /home/pavan/fmw/domains/poc_domain/bin/setDomainEnv.sh && wlst /root/script/weblogic.py
-      become: yes
+    - name: Set environment variables
+      ansible.builtin.set_fact:
+        domain_home: "/home/pavan/fmw/domains/poc_domain"
+        script_path: "/root/script/weblogic.py"
+
+    - name: Run WLST script
+      command: "{{ domain_home }}/bin/wlst.sh {{ script_path }}"
 
     - name: Remove cloned repository
       file:
