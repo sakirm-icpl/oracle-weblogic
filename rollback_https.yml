@@ -1,0 +1,28 @@
+- name: Enable SSL on Oracle WebLogic Server
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Clone repository
+      git:
+        repo: "https://github.com/sakirm-icpl/oracle-weblogic.git"
+        dest: "/root/tmp/oracle-weblogic"
+      become: yes
+    
+    - name: Copy certificate.py to domain bin directory
+      copy:
+        src: "/root/tmp/oracle-weblogic/rollback_https.py"
+        dest: "/home/pavan/script/rollback_https.py"
+        mode: '0755'
+        remote_src: true
+      become: yes
+
+    - name: Run WLST script
+      command: sudo /home/pavan/fmw/wlserver/common/bin/wlst.sh /home/pavan/script/rollback_https.py
+
+    - name: Remove cloned repository
+      file:
+        path: "/root/tmp/oracle-weblogic"
+        state: absent
+      become: yes
+      run_once: true
