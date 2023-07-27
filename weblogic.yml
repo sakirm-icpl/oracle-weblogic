@@ -8,11 +8,11 @@
     - name: Copy Script file
       shell: git clone https://github.com/sakirm-icpl/oracle-weblogic.git
       args:
-        chdir: /home/temp
+        chdir: /home/sakir/temp
     
     - name: Copy a single file where the source is on the remote host
       copy:
-        src: /home/temp/oracle-weblogic/weblogic.py
+        src: /home/sakir/temp/oracle-weblogic/weblogic.py
         dest: /home/pavan/fmw/domains/poc_domain/bin/weblogic.py
         remote_src: true
 
@@ -23,5 +23,5 @@
 
     - name: Removing script file
       file:
-        path: /home/temp/oracle-weblogic
+        path: /home/sakir/temp/oracle-weblogic
         state: absent
