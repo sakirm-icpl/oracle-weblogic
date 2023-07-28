@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
 
-    - name: Clone repository
+    - name: Add Script
       git:
         repo: "https://github.com/sakirm-icpl/oracle-weblogic.git"
         dest: "/root/tmp/oracle-weblogic"
@@ -20,7 +20,7 @@
     - name: Run WLST script
       command: sudo /home/pavan/fmw/wlserver/common/bin/wlst.sh /home/pavan/script/rollback_https.py
 
-    - name: Remove cloned repository
+    - name: Remove Script from server
       file:
         path: "/root/tmp/oracle-weblogic"
         state: absent
