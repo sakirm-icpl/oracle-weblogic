@@ -1,4 +1,4 @@
-- name: Enable SSL on Oracle WebLogic Server
+- name: Enable SSL and Add Certificate on Oracle WebLogic Server
   hosts: all
   gather_facts: false
   tasks:
